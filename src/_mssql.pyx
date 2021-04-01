@@ -36,6 +36,8 @@ DEF DBVERSION_71 = 5
 DEF DBVERSION_72 = 6
 # Provide constant missing from FreeTDS 0.91 so that we can build against it
 DEF DBVERSION_73 = 7
+# FreeTDS 1.00
+DEF DBVERSION_74 = 8
 
 ROW_FORMAT_TUPLE = 1
 ROW_FORMAT_DICT = 2
@@ -1761,6 +1763,8 @@ cdef int _tds_ver_str_to_constant(verstr) except -1:
         return DBVERSION_72
     if verstr == u'7.3':
         return DBVERSION_73
+    if verstr == u'7.4':
+        return DBVERSION_74
     if verstr == u'8.0':
         return DBVERSION_71
     raise MSSQLException('unrecognized tds version: %s' % verstr)
